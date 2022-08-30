@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+    <Authors>zimbres</Authors>
+    <Title>NiceHash Rest Client</Title>
+    <PackageTags>nicehash</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>nicehash.png</PackageIcon>
+    <PackageProjectUrl>https://github.com/zimbres/NiceHashRestClient</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/zimbres/NiceHashRestClient</RepositoryUrl>
+    <Version>0.0.1</Version>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Description>NiceHash Rest Client</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\assets\icons\nicehash.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Options" Version="6.0.0" />
+    <PackageReference Include="RestSharp" Version="108.0.1" />
+  </ItemGroup>
+
+</Project>
