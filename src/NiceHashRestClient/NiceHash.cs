@@ -91,9 +91,9 @@ public class NiceHash
         return result;
     }
 
-    public async Task<string> Get(string url)
+    public async Task<string> Get(string endpoint)
     {
-        return await Get(url, false, null);
+        return await Get(endpoint, false, null);
     }
 
     public async Task<string> Get(string endpoint, bool auth, string time)
