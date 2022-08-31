@@ -1,4 +1,4 @@
-﻿namespace NiceHashRestClient.Configurations;
+﻿namespace NiceHashRestClient;
 
 public class NiceHashOptions
 {
