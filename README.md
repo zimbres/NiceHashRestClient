@@ -1,5 +1,7 @@
 # NiceHash Rest Client
 
+[![CodeQL](https://github.com/zimbres/NiceHashRestClient/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/zimbres/NiceHashRestClient/actions/workflows/codeql-analysis.yml)
+
 ### Nuget
 
 | | |
