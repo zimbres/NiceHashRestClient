@@ -19,9 +19,9 @@ public class Worker
             var time = DateTimeOffset.Now.ToUnixTimeMilliseconds().ToString();
 
             var rigs = await _niceHash.Get(endpoint, true, time);
-            Console.WriteLine(rigs);
+            Console.WriteLine(rigs.Content);
 
-            var rigsJson = JsonSerializer.Deserialize<Rigs>(rigs);
+            var rigsJson = JsonSerializer.Deserialize<Rigs>(rigs.Content);
             Console.WriteLine(rigsJson.MinerStatuses.Mining);
         }
         catch (Exception ex)

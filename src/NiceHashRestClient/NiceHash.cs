@@ -91,12 +91,12 @@ public class NiceHash
         return result;
     }
 
-    public async Task<string> Get(string endpoint)
+    public async Task<RestResponse> Get(string endpoint)
     {
         return await Get(endpoint, false, null);
     }
 
-    public async Task<string> Get(string endpoint, bool auth, string time)
+    public async Task<RestResponse> Get(string endpoint, bool auth, string time)
     {
         var client = new RestClient(UrlRoot);
         var request = new RestRequest(endpoint);
@@ -113,11 +113,10 @@ public class NiceHash
         }
 
         var response = await client.ExecuteAsync(request, Method.Get);
-        var content = response.Content;
-        return content;
+        return response;
     }
 
-    public string Post(string url, string payload, string time, bool requestId)
+    public async Task<RestResponse> Post(string url, string payload, string time, bool requestId)
     {
         var client = new RestClient(UrlRoot);
         var request = new RestRequest(url);
@@ -142,12 +141,11 @@ public class NiceHash
             request.AddHeader("X-Request-Id", Guid.NewGuid().ToString());
         }
 
-        var response = client.Execute(request, Method.Post);
-        var content = response.Content;
-        return content;
+        var response = await client.ExecuteAsync(request, Method.Post);
+        return response;
     }
 
-    public string Delete(string url, string time, bool requestId)
+    public async Task<RestResponse> Delete(string url, string time, bool requestId)
     {
         var client = new RestClient(UrlRoot);
         var request = new RestRequest(url);
@@ -165,8 +163,7 @@ public class NiceHash
             request.AddHeader("X-Request-Id", Guid.NewGuid().ToString());
         }
 
-        var response = client.Execute(request, Method.Delete);
-        var content = response.Content;
-        return content;
+        var response = await client.ExecuteAsync(request, Method.Delete);
+        return response;
     }
 }
