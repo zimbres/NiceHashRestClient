@@ -116,15 +116,15 @@ public class NiceHash
         return response;
     }
 
-    public async Task<RestResponse> Post(string url, string payload, string time, bool requestId)
+    public async Task<RestResponse> Post(string endpoint, string payload, string time, bool requestId)
     {
         var client = new RestClient(UrlRoot);
-        var request = new RestRequest(url);
+        var request = new RestRequest(endpoint);
         request.AddHeader("Accept", "application/json");
         request.AddHeader("Content-type", "application/json");
 
         string nonce = Guid.NewGuid().ToString();
-        string digest = HashBySegments(ApiSecret, ApiKey, time, nonce, OrgId, "POST", GetPath(url), GetQuery(url), payload);
+        string digest = HashBySegments(ApiSecret, ApiKey, time, nonce, OrgId, "POST", GetPath(endpoint), GetQuery(endpoint), payload);
 
         if (payload != null)
         {
@@ -145,13 +145,13 @@ public class NiceHash
         return response;
     }
 
-    public async Task<RestResponse> Delete(string url, string time, bool requestId)
+    public async Task<RestResponse> Delete(string endpoint, string time, bool requestId)
     {
         var client = new RestClient(UrlRoot);
-        var request = new RestRequest(url);
+        var request = new RestRequest(endpoint);
 
         string nonce = Guid.NewGuid().ToString();
-        string digest = HashBySegments(ApiSecret, ApiKey, time, nonce, OrgId, "DELETE", GetPath(url), GetQuery(url), null);
+        string digest = HashBySegments(ApiSecret, ApiKey, time, nonce, OrgId, "DELETE", GetPath(endpoint), GetQuery(endpoint), null);
 
         request.AddHeader("X-Time", time);
         request.AddHeader("X-Nonce", nonce);
