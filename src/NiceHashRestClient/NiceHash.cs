@@ -87,7 +87,7 @@ public class NiceHash
         baSalt = enc.GetBytes(salt);
         HMACSHA256 hasher = new(baSalt);
         byte[] baHashedText = hasher.ComputeHash(baText2BeHashed);
-        result = string.Join("", baHashedText.ToList().Select(b => b.ToString("x2")).ToArray());
+        result = string.Join("", baHashedText.Select(b => b.ToString("x2")).ToArray());
         return result;
     }
 
